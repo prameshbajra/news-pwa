@@ -1,9 +1,12 @@
 const apiKey = "c12a370e3ccc4509bf286ced0315e87b";
+let selectSource = "";
 let main = '';
 
 window.addEventListener('load', (e) => {
     main = document.getElementById('main');
+    selectSource = document.getElementById('selectSource');
     updateNews();
+    updateNewsSources();
 })
 
 async function updateNews() {
@@ -39,4 +42,12 @@ async function updateNews() {
             </div>
         `;
     }).join("");
+}
+
+async function updateNewsSources() {
+    const res = await fetch(`https://newsapi.org/v2/sources?apiKey=${apiKey}`);
+    const jsonSource = await res.json();
+    selectSource.innerHTML = jsonSource.sources.map((result) => {
+        return `<option value="${result.id}">${result.name} -> Language : ${result.language}></option>`;
+    })
 }
