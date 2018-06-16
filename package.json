@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/prameshbajra/news-pwa/issues"
   },
-  "homepage": "https://github.com/prameshbajra/news-pwa#readme"
+  "homepage": "https://github.com/prameshbajra/news-pwa#readme",
+  "dependencies": {
+    "workbox-sw": "^3.2.0"
+  }
 }
