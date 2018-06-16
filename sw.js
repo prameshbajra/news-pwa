@@ -10,7 +10,7 @@ if (workbox) {
         "/index.js"
     ];
     workbox.routing.registerRoute(
-        new RegExp('*\.*'),
+        new RegExp('.*\.*'),
         workbox.strategies.networkFirst()
     );
 } else {
