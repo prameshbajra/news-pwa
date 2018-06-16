@@ -1,16 +1,23 @@
 const apiKey = "c12a370e3ccc4509bf286ced0315e87b";
+const defaultSource = "the-washington-post";
 let selectSource = "";
 let main = '';
 
-window.addEventListener('load', (e) => {
+window.addEventListener('load', async (e) => {
     main = document.getElementById('main');
     selectSource = document.getElementById('selectSource');
     updateNews();
-    updateNewsSources();
+    await updateNewsSources();
+    selectSource.value = defaultSource;
+
+    // Updating based on the selected news ...
+    selectSource.addEventListener("change", (e) => {
+        updateNews(e.target.value);
+    })
 })
 
-async function updateNews() {
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
+async function updateNews(source = defaultSource) {
+    const res = await fetch(`https://newsapi.org/v1/articles?source=${source}&apiKey=${apiKey}`);
     const json = await res.json();
 
     main.innerHTML = json.articles.map((res) => {
@@ -32,10 +39,6 @@ async function updateNews() {
                     <div class="extra content">
                         <span class="right floated">
                             ${res.publishedAt}
-                        </span>
-                        <span>
-                            <i class="user icon"></i>
-                            ${res.source.name}
                         </span>
                     </div>
                 </div>

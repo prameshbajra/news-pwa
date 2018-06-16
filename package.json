@@ -1,0 +1,19 @@
+{
+  "name": "news-pwa",
+  "version": "1.0.0",
+  "description": "Progressive News",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prameshbajra/news-pwa.git"
+  },
+  "author": "Pramesh Bajracharya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prameshbajra/news-pwa/issues"
+  },
+  "homepage": "https://github.com/prameshbajra/news-pwa#readme"
+}
