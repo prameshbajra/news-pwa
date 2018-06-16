@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/prameshbajra/news-pwa#readme",
   "dependencies": {
+    "express": "^4.16.3",
     "workbox-sw": "^3.2.0"
   }
 }
